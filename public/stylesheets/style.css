@@ -1,0 +1,17 @@
+:root {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    border: 1px solid black;
+}
+
+main {
+    border: 1px solid red;
+}
