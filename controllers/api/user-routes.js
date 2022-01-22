@@ -90,6 +90,17 @@ router.post('/login', (req, res) => {
             res.json({ user: dbUserData, message: "Logged in" });
         })
     })
+});
+
+// POST logout
+router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        })
+    } else {
+        res.status(404).end();
+    }
 })
 
 // PUT and update to a User by ID
