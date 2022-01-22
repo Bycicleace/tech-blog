@@ -1,3 +1,8 @@
-<div>
-    You're in the dashboard
-</div>
+<ul class="posts">
+    {{#each posts as |post|}}
+    <li>
+        {{> post-info post}}
+    </li>
+    {{/each}}
+</ul>
+<button onclick="location.replace('/dashboard/new-post')">Create New Post</button>
