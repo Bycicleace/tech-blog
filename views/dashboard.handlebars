@@ -1,8 +1,9 @@
 <ul class="posts">
     {{#each posts as |post|}}
-    <li>
+    <li data-post-id="{{post.id}}">
         {{> post-info post}}
     </li>
     {{/each}}
 </ul>
-<button onclick="location.replace('/dashboard/new-post')">Create New Post</button>
+<button id="create-new-post">Create New Post</button>
+<script src="/javascript/dashboard.js"></script>
