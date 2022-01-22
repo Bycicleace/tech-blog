@@ -1,3 +1,18 @@
-<div>
-    Editing post {{post.id}}
+<div class="card">
+    <div class="card-title">Edit Post</div>
+    <div class="card-body">
+        <form id="edit-post-form" data-post-id="{{post.id}}">
+            <div>
+                <label for='edit-title'>Title</label>
+                <input type="text" id='edit-title' value="{{post.title}}" />
+            </div>
+            <div>
+                <label for='edit-body'>Post</label>
+                <textarea id='edit-body'>{{post.body}}</textarea>
+            </div>
+            <button type="submit">Update</button>
+            <button id="edit-cancel">Cancel</button>
+        </form>
+    </div>
 </div>
+<script src="/javascript/edit-post.js" />

@@ -91,6 +91,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
     Post.update(
         {
+            title: req.body.title,
             body: req.body.body
         },
         {
