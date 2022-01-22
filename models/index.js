@@ -23,7 +23,7 @@ Comment.belongsTo(User, {
 });
 
 // post has many comments
-// comment belongs to user
+// comment belongs to post
 Post.hasMany(Comment, {
     foreignKey: 'post_id'
 });
