@@ -1,14 +1,20 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
 
-// GET all Comments
-
-// GET Comment by ID
-
 // POST New Comment
-
-// PUT and update to a Comment by ID
-
-// DELETE Comment by ID
+router.post('/', (req, res) => {
+    if (req.session) {
+        Comment.create({
+            body: req.body.body,
+            post_id: req.body.post_id,
+            user_id: req.session.user_id
+        })
+        .then(dbCommentData => res.json(dbCommentData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+    }
+})
 
 module.exports = router;
