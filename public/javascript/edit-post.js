@@ -21,6 +21,25 @@ async function updatePost(event) {
     }
 };
 
+async function deletePost(event) {
+    event.preventDefault();
+    const form = document.querySelector('#edit-post-form');
+    const postId = form.dataset.postId;
+
+    if (postId) {
+        const response = await fetch(`/api/posts/${postId}`, {
+            method: 'delete',
+            headers: { 'Content-Type': 'application/json' }
+        })
+
+        if (response.ok) {
+            document.location.replace('/dashboard');
+        } else {
+            console.error(response.statusText);
+        }
+    }
+}
+
 async function cancel(event) {
     event.preventDefault();
     document.location.replace('/dashboard');
@@ -28,3 +47,4 @@ async function cancel(event) {
 
 document.querySelector('#edit-post-form').addEventListener('submit', updatePost);
 document.querySelector('#edit-cancel').addEventListener('click', cancel);
+document.querySelector('#edit-delete').addEventListener('click', deletePost);
