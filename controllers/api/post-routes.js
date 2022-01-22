@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { put } = require('.');
 const { Post, User, Comment } = require('../../models');
 
 // GET all Posts
@@ -29,8 +30,8 @@ router.get('/', (req, res) => {
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
-    })
-})
+    });
+});
 
 // GET one Post by ID
 router.get('/:id', (req, res) => {
@@ -69,8 +70,8 @@ router.get('/:id', (req, res) => {
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
-    })
-})
+    });
+});
 
 // POST a New Post
 router.post('/', (req, res) => {
@@ -83,10 +84,33 @@ router.post('/', (req, res) => {
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
-    })
-})
+    });
+});
 
 // PUT and update to a Post by ID
+router.put('/:id', (req, res) => {
+    Post.update(
+        {
+            body: req.body.body
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        }
+    )
+    .then(dbPostData => {
+        if(!dbPostData) {
+            res.status(404).json({ message: "No post found with this id" });
+            return;
+        }
+        res.json(dbPostData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 // DELETE a Post by ID
 
