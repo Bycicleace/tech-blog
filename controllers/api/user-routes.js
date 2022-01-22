@@ -63,6 +63,35 @@ router.post('/', (req, res) => {
         })
 });
 
+// POST login
+router.post('/login', (req, res) => {
+    User.findOne({
+        where: {
+            username: req.body.username
+        }
+    })
+    .then(dbUserData => {
+        if(!dbUserData) {
+            res.status(404).json({ message: "No user with that username" });
+            return;
+        }
+
+        const validPassword = dbUserData.checkPassword(req.body.password);
+        if (!validPassword) {
+            res.status(400).json({ message: "Invalid Credentials" });
+            return;
+        }
+
+        req.session.save(() => {
+            req.session.user_id = dbUserData.id;
+            req.session.username = dbUserData.username;
+            req.session.loggedIn = true;
+
+            res.json({ user: dbUserData, message: "Logged in" });
+        })
+    })
+})
+
 // PUT and update to a User by ID
 router.put('/:id', (req, res) => {
     User.update(req.body, {
