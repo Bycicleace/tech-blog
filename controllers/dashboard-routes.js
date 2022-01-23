@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
+const withAuth = require('../utils/auth.js');
 
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Post.findAll({
         where: {
             user_id: req.session.user_id
@@ -40,13 +41,13 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/new-post', (req, res) => {
+router.get('/new-post', withAuth, (req, res) => {
     res.render('new-post', {
         loggedIn: req.session.loggedIn
     });
 });
 
-router.get('/post/:id', (req, res) => {
+router.get('/post/:id', withAuth, (req, res) => {
     Post.findOne({
         where: {
             id: req.params.id
