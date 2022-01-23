@@ -12,7 +12,7 @@
         <h3>Leave a Comment</h3>
     </div>
     <div class="card-body">
-        <form id="comment-form">
+        <form id="comment-form" data-post-id="{{post.id}}">
             <div>
                 <label for="comment-body">Comment</label>
                 <textarea id="comment-body"></textarea>
@@ -28,3 +28,4 @@
         {{/each}}
     </div>
 {{/if}}
+<script src="/javascript/add-comment.js" />
