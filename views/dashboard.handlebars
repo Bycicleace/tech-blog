@@ -1,10 +1,17 @@
-<ul class="posts">
-    {{#each posts as |post|}}
-    <li data-post-id="{{post.id}}">
-        {{> post-info post}}
-    </li>
-    {{/each}}
-</ul>
+<div class="no-hover-card">
+    <div class="card-title">
+        <h3>Your Posts</h3>
+    </div>
+    <div class="card-body">
+        <ul class="posts">
+            {{#each posts as |post|}}
+            <li data-post-id="{{post.id}}">
+                {{> post-info post}}
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
 <div id="create-new-post">
     <button>Create New Post</button>
 </div>
