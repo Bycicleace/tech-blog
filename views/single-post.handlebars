@@ -7,6 +7,7 @@
         <span>{{post.body}}</span>
     </div>
 </div>
+{{#if loggedIn}}
 <div class="card">
     <div class="card-title">
         <h3>Leave a Comment</h3>
@@ -21,6 +22,7 @@
         </form>
     </div>
 </div>
+{{/if}}
 {{#if post.comments}}
     <div>
         {{#each post.comments as |comment|}}

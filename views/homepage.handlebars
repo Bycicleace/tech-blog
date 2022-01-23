@@ -1,7 +1,8 @@
 <ul class="posts">
     {{#each posts as |post|}}
-    <li>
+    <li data-post-id="{{post.id}}">
         {{> post-info post}}
     </li>
     {{/each}}
 </ul>
+<script src="/javascript/homepage.js"></script>
