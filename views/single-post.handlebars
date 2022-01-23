@@ -13,21 +13,28 @@
         <h3>Leave a Comment</h3>
     </div>
     <div class="card-body">
-        <form id="comment-form" data-post-id="{{post.id}}">
-            <div>
+        <form class="form" id="comment-form" data-post-id="{{post.id}}">
+            <div class="form-body">
                 <label for="comment-body">Comment</label>
                 <textarea id="comment-body"></textarea>
             </div>
-            <button type="submit">Submit</button>
+            <div class="form-buttons">
+                <button class="btn" type="submit">Submit</button>
+            </div>
         </form>
     </div>
 </div>
 {{/if}}
 {{#if post.comments}}
-    <div>
-        {{#each post.comments as |comment|}}
+    <div class="no-hover-card">
+        <div class="card-title">
+            <h3>Comments</h3>
+        </div>
+        <div class="card-body">
+            {{#each post.comments as |comment|}}
                 {{> comment-info comment}}
-        {{/each}}
+            {{/each}}
+        </div>
     </div>
 {{/if}}
 <script src="/javascript/add-comment.js" />

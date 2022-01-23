@@ -1,18 +1,22 @@
 <div class="no-hover-card">
-    <div class="card-title">Edit Post</div>
+    <div class="card-title">
+        <h3>Edit Post</h3>
+    </div>
     <div class="card-body">
-        <form id="edit-post-form" data-post-id="{{post.id}}">
-            <div>
+        <form class="form" id="edit-post-form" data-post-id="{{post.id}}">
+            <div class="form-title">
                 <label for='edit-title'>Title</label>
                 <input type="text" id='edit-title' value="{{post.title}}" />
             </div>
-            <div>
+            <div class="form-body">
                 <label for='edit-body'>Post</label>
                 <textarea id='edit-body'>{{post.body}}</textarea>
             </div>
-            <button type="submit">Update</button>
-            <button id="edit-delete">Delete</button>
-            <button id="edit-cancel">Cancel</button>
+            <div class="form-buttons">
+                <button class="btn" type="submit">Update</button>
+                <button class="btn" id="edit-delete">Delete</button>
+                <button class="btn" id="edit-cancel">Cancel</button>
+            </div>
         </form>
     </div>
 </div>
