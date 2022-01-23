@@ -1,17 +1,145 @@
 :root {
     margin: 0;
     padding: 0;
+    --dark-bg: rgb(35,16,16);
+    --light-bg: rgb(217,234,211);
+    --dark-text: rgb(4,0,0);
+    --light-text: rgb(217,234,211);
+    --gray-text: rgb(167,167,167);
 }
 
 html, body {
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
+    display: inline-block;
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    width: 100%;
 }
 
-/* header {
-    border: 1px solid black;
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
+    padding: 0px;
+}
+
+header {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    padding: 20px 0;
+    width: 100%;
+    flex: 0 0 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header nav {
+    flex: 0 0 100%;
+    margin-bottom: 20px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: var(--light-text);
+    font-size: 26px;
+    font-weight: 500;
+    padding: 0 40px;
+}
+
+header div {
+    background-color: var(--light-bg);
+    border-radius: 10px;
+    box-shadow: 5px 5px var(--gray-text);
+    height: 50px;
+    margin: 0 0 10px 40px;
+}
+
+header div h1 a {
+    text-decoration: none;
+    color: var(--dark-text);
+    font-weight: 800;
+    padding: 0 15px;
 }
 
 main {
-    border: 1px solid red;
-} */
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.no-hover-card {
+    border: 3px solid var(--dark-bg);
+    margin: 10px 40px 10px 40px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    border: 3px solid var(--dark-bg);
+    margin: 10px 40px 10px 40px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-title {
+    flex: 0 0 100%;
+    background-color: var(--dark-bg);
+    color: var(--gray-text);
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.card-title h3 {
+    font-size: 26px;
+    padding: 10px 0 10px 20px;
+}
+
+.card-title span {
+    font-size: 18px;
+    margin: auto 0;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.card:hover .card-title {
+    color: var(--light-text);
+}
+
+.card-body {
+    padding: 20px;
+    font-size: 24px;
+}
+
+#create-new-post {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+#create-new-post button {
+    font-size: 24px;
+    font-weight: 700;
+    background-color: var(--dark-bg);
+    color: var(--gray-text);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px auto;
+    cursor: pointer;
+}
+
+#create-new-post button:hover {
+    color: var(--light-text)
+}
